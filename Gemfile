@@ -12,7 +12,9 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 
-gem "active_model_serializers", "~> 0.10.0"
+gem 'active_model_serializers', '~> 0.10.0'
+
+gem 'rack-cors'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
@@ -33,9 +35,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem "rspec-rails", "~> 3.8"
-  gem "factory_bot_rails"
-  gem "faker", git: "https://github.com/stympy/faker.git", branch: "master"
+  gem 'factory_bot_rails'
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+  gem 'rspec-rails', '~> 3.8'
 end
 
 group :development do
@@ -50,5 +52,5 @@ end
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :test do
-  gem "shoulda-matchers"
+  gem 'shoulda-matchers'
 end

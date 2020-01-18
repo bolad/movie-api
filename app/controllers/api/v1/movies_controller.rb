@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::V1::MoviesController < Api::V1::ApiController
   before_action :set_movie, only: %i[show update destroy]
 
@@ -21,23 +23,24 @@ class Api::V1::MoviesController < Api::V1::ApiController
   end
 
   def update
-      if @movie.update(movie_params)
-        render json: @movie
-      else
-        render json: @movie.errors, status: :unprocessable_entity
-      end
+    if @movie.update(movie_params)
+      render json: @movie
+    else
+      render json: @movie.errors, status: :unprocessable_entity
+    end
     end
 
-    def destroy
-      @movie.destroy
-    end
+  def destroy
+    @movie.destroy
+  end
 
     private
-      def set_movie
-        @movie = Movie.find(params[:id])
-      end
 
-      def movie_params
-        params.require(:movie).permit(:title, :plot, :release_date)
-      end
+  def set_movie
+    @movie = Movie.find(params[:id])
+  end
+
+  def movie_params
+    params.require(:movie).permit(:title, :plot, :release_date)
+  end
   end
